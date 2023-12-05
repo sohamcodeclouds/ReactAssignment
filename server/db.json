@@ -1,0 +1,95 @@
+{
+  "contacts": [
+    {
+      "id": "5cf5221e-d898-4469-b60d-2408eca3a5a4",
+      "name": "john deo",
+      "email": "john@test.com",
+      "roleValue": "HTML Developer",
+      "description": "",
+      "isVerified": "active"
+    },
+    {
+      "id": "faf62acc-2c73-4838-95d4-dddeafa415d2",
+      "name": "adam smith",
+      "email": "adam.smith@test.com",
+      "roleValue": "BackEnd Developer",
+      "description": "test 123",
+      "isVerified": "active"
+    },
+    {
+      "id": "7218af6e-6554-4c9d-8d9f-b91c29a70d61",
+      "isVerified": "deactive",
+      "name": "jane deo",
+      "email": "jane@test.com",
+      "roleValue": "Project Manager",
+      "description": ""
+    },
+    {
+      "id": "517b71a7-9973-44df-afe3-8a34e38c54b3",
+      "isVerified": "deactive",
+      "name": "test demo",
+      "email": "demo@test.cc",
+      "roleValue": "HTML Developer",
+      "description": ""
+    },
+    {
+      "id": "5a314c6d-1b47-4636-9cf9-b70d0b4b5b49",
+      "name": "peter parkar",
+      "email": "peter@marvel.com",
+      "roleValue": "UX Developer",
+      "description": "Spider man",
+      "isVerified": "active"
+    },
+    {
+      "id": "31e22d89-95dc-47a6-83b1-ced49c416f1a",
+      "isVerified": "deactive",
+      "name": "test345",
+      "email": "test345@mail.com",
+      "roleValue": "UX Developer",
+      "description": ""
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Project Manager"
+    },
+    {
+      "id": 2,
+      "name": "UX Developer"
+    },
+    {
+      "id": 3,
+      "name": "Quality Analyst"
+    },
+    {
+      "id": 4,
+      "name": "UI Developer"
+    },
+    {
+      "id": 5,
+      "name": "HTML Developer"
+    },
+    {
+      "id": 6,
+      "name": "BackEnd Developer"
+    },
+    {
+      "id": 7,
+      "name": "HR"
+    }
+  ],
+  "admin": {
+    "email": "admin@gmail.com",
+    "password": "adminpassword"
+  },
+  "vendors": [
+    {
+      "id": "f988c867-64b0-446a-bef0-a7e760effac9",
+      "name": "test demo",
+      "email": "test@mail.com",
+      "password": "test123",
+      "isActive": false
+    }
+  ]
+}
