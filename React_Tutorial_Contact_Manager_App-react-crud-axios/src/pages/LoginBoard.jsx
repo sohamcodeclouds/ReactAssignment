@@ -6,6 +6,18 @@ import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 
 const LoginBoard = () => {
+  const buttonContainerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    height: '60vh',
+    alignItems: 'center',
+  }
+
+  const buttonStyle = {
+    padding: '10px 20px',
+    margin: '30px 5px 0px 0px',
+    border: '2px solid',
+  }
   function handleAdminLogin() {
     console.log('admin login')
   }
@@ -15,14 +27,22 @@ const LoginBoard = () => {
   return (
     <>
       <Dashboard />
-      <div className='bttn-parent'>
+      <div style={buttonContainerStyle}>
         <Link to='/adminlogin'>
-          <Button color='inherit' onClick={handleAdminLogin} className='bttn'>
+          <Button
+            color='inherit'
+            onClick={handleAdminLogin}
+            style={buttonStyle}
+          >
             Admin
           </Button>
         </Link>
         <Link to='/vendorlogin'>
-          <Button color='inherit' onClick={handleVendorLogin} className='bttn'>
+          <Button
+            color='inherit'
+            onClick={handleVendorLogin}
+            style={buttonStyle}
+          >
             Vendor
           </Button>
         </Link>

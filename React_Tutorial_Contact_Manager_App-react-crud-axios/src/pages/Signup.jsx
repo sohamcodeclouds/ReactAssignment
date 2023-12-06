@@ -100,7 +100,7 @@ export default function SignUp() {
     <ThemeProvider theme={defaultTheme}>
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
-        <Dashboard />
+
         <Box
           sx={{
             marginTop: 8,
