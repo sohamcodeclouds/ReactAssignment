@@ -48,8 +48,9 @@ export default function SignUp() {
     email: '',
     password: '',
     id: '',
-    isActive: false,
-    contacts: [],
+    isVerified: 'deactive',
+    roleValue: '',
+    description: '',
   })
 
   function handleChange(e) {
@@ -65,11 +66,13 @@ export default function SignUp() {
       name: formData.name,
       email: formData.email,
       password: formData.password,
-      isActive: formData.isActive,
+      isVerified: formData.isVerified,
+      roleValue: formData.roleValue,
+      description: formData.description,
     }
 
     try {
-      const response = await fetch('http://localhost:3006/vendors', {
+      const response = await fetch('http://localhost:3006/contacts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +90,6 @@ export default function SignUp() {
           password: '',
         })
         navigate('/vendorlogin')
-        // history.push('/vendorlogin')
       } else {
         // Handle registration error
         console.error('Registration failed.')

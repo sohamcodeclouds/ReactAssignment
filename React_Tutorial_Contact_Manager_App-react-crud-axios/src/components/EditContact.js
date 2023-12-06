@@ -11,8 +11,9 @@ const EditContact = (props) => {
 
   const [name, setName] = useState(state.contact.name)
   const [email, setEmail] = useState(state.contact.email)
+  const [password, setPassword] = useState(state.contact.password)
   const [description, setDescription] = useState(state.contact.description)
-  const [roleValue, setRolevalue] = useState(state.contact.roleValue)
+  const [roleValue, setRolevalue] = useState('Project Manager')
 
   const handleUpdate = (e) => {
     e.preventDefault()
@@ -28,7 +29,9 @@ const EditContact = (props) => {
       roleValue,
       description,
       isVerified,
+      password,
     })
+    setPassword(password)
     setName('')
     setEmail('')
     navigate('/vendordashboard')

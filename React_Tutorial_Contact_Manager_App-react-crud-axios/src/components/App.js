@@ -52,20 +52,20 @@ function App() {
     return response.data
   }
 
-  const addContactHandler = async (contact) => {
-    console.log('log contact', contact)
-    const request = {
-      id: v4(),
-      isVerified: 'deactive',
-      ...contact,
-    }
+  // const addContactHandler = async (contact) => {
+  //   console.log('log contact', contact)
+  //   const request = {
+  //     id: v4(),
+  //     isVerified: 'deactive',
+  //     ...contact,
+  //   }
 
-    dispatch(addContact(request))
+  //   dispatch(addContact(request))
 
-    const response = await api.post('/contacts', request)
-    console.log(response)
-    setContacts([...contacts, response.data])
-  }
+  //   const response = await api.post('/contacts', request)
+  //   console.log(response)
+  //   setContacts([...contacts, response.data])
+  // }
 
   const updateContactHandler = async (contact) => {
     console.log('update', contact)
@@ -133,61 +133,6 @@ function App() {
 
   return (
     <Router>
-      {/* <Header />
-        <Switch>
-          <Route
-            path='/'
-            exact
-            render={(props) => (
-              <UserPage
-                {...props}
-                contacts={contacts}
-                getContactId={removeContactHandler}
-              />
-            )}
-          />
-          <Route
-            path='/user'
-            exact
-            render={(props) => (
-              <UserList
-                {...props}
-                contacts={contacts}
-                getContactId={removeContactHandler}
-              />
-            )}
-          />
-
-          <Route
-            path='/add'
-            render={(props) => (
-              <AddContact
-                {...props}
-                addContactHandler={addContactHandler}
-                roles={role}
-              />
-            )}
-          />
-
-          <Route
-            path='/edit'
-            render={(props) => (
-              <EditContact
-                {...props}
-                updateContactHandler={updateContactHandler}
-                roles={role}
-              />
-            )}
-          />
-
-          <Route
-            path='/contact/:id'
-            render={(props) => (
-              <ContactDetail {...props} changeStatus={changeStatus} />
-            )}
-          />
-        </Switch>
-         */}
       {/*New Route */}
 
       <Routes>
@@ -221,20 +166,19 @@ function App() {
         />
         <Route
           path='/vendordashboard'
-          element={
-            <UserList contacts={contacts} getContactId={removeContactHandler} />
-          }
+          element={<UserList userDetails={isVendorLoggedIn} />}
         />
+
         <Route
           path='/contact/:id'
           element={<ContactDetail changeStatus={changeStatus} />}
         />
-        <Route
+        {/* <Route
           path='/vendordashboard/add'
           element={
             <AddContact addContactHandler={addContactHandler} roles={role} />
           }
-        />
+        /> */}
         <Route
           path='/edit'
           element={

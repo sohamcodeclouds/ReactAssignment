@@ -10,7 +10,7 @@ const ContactDetail = (props) => {
   const navigate = useNavigate()
   const { state } = useLocation()
 
-  const { id, name, email, roleValue, description } = state.contact
+  const { id, name, email, roleValue, description, password } = state.contact
   const [isVerified, setIsVerified] = useState(state.contact.isVerified)
   console.log('isVerified', state, props)
 
@@ -25,6 +25,7 @@ const ContactDetail = (props) => {
       id,
       name,
       email,
+      password,
       roleValue,
       description,
       isVerified,

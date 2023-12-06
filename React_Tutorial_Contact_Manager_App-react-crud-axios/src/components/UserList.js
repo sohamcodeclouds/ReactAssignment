@@ -1,52 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import UserCard from './UserCard'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Container } from '@mui/material'
 import Dashboard from '../pages/Dashboard'
 
 const UserList = (props) => {
-  const [filteredContact, setFilteredContact] = useState([])
-  const contact = useSelector((state) => console.log(state, 'selector'))
-  console.log('log', contact)
+  const [verified, setVerified] = useState('')
+  const [contactDetails, setContactDetails] = useState()
+  console.log('log state', props)
+  const { userDetails } = props
 
   useEffect(() => {
-    const activeContacts = props.contacts.filter(
-      (contact) => contact.isVerified === 'active'
-    )
-    console.log('activeContacts', activeContacts)
-    setFilteredContact(activeContacts)
-  }, [props.contacts])
+    console.log('user details', userDetails)
+    if (userDetails) {
+      setVerified(userDetails?.isVerified)
+      setContactDetails(userDetails)
+      console.log('user details verified?', verified)
+    }
+  }, [userDetails, verified])
   const deleteConactHandler = (id) => {
     props.getContactId(id)
   }
-  const renderContactList = filteredContact.map((contact) => {
-    return (
-      <UserCard
-        contact={contact}
-        clickHander={deleteConactHandler}
-        key={contact.id}
-      />
-    )
-  })
+  const renderContactList = (
+    <UserCard contact={contactDetails} clickHander={deleteConactHandler} />
+  )
 
   return (
     <>
       <Dashboard />
       <Container>
         <div className='main'>
-          <h2>
-            User List
-            <Link to='/vendordashboard/add'>
-              <button className='ui button blue right'>Add Contact</button>
-            </Link>
-          </h2>
+          <h2>User Details</h2>
           <div className='ui celled list'>
-            {filteredContact.length > 0 ? (
+            {verified === 'active' ? (
               renderContactList
             ) : (
               <p style={{ textAlign: 'center', color: 'red' }}>
-                No Active Records Found!
+                You can not edit/update your profile. Verification pending!
               </p>
             )}
           </div>

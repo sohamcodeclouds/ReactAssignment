@@ -23,7 +23,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -48,6 +48,7 @@ function Copyright(props) {
 const defaultTheme = createTheme()
 
 export default function VendorLogin({ onLogin }) {
+  const navigate = useNavigate()
   const [formData, setFormData] = React.useState({
     email: '',
     password: '',
@@ -63,7 +64,7 @@ export default function VendorLogin({ onLogin }) {
     e.preventDefault()
 
     try {
-      const response = await fetch('http://localhost:3006/vendors')
+      const response = await fetch('http://localhost:3006/contacts')
       if (response.ok) {
         const vendorData = await response.json()
         // console.log(vendorData);
@@ -82,13 +83,14 @@ export default function VendorLogin({ onLogin }) {
           // Login successful
           onLogin(foundUser)
 
-          alert(`Login successful ${foundUser.name}`)
-          // console.log(`Login successful ${foundUser.name}`);
+          alert(`Login successful`)
+          console.log(foundUser)
           // Clear form fields after successful login
           setFormData({
             email: '',
             password: '',
           })
+          navigate('/vendordashboard')
         } else {
           // Show an error message or pop-up for invalid credentials
           alert('Invalid username or password. Please try again.')

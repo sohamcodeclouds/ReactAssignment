@@ -15,25 +15,10 @@ export default function Dashboard() {
     navigate('/')
   }
 
-  // function handleAdminLogin(){
-  //     console.log("admin login");
-  // }
-  // function handleVendorLogin(){
-  //     console.log("vendor login");
-  // }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Typography
             variant='h6'
             component='div'
@@ -44,12 +29,6 @@ export default function Dashboard() {
           </Typography>
         </Toolbar>
       </AppBar>
-      {/* <Link to="/adminlogin">
-          <Button color="inherit" onClick={handleAdminLogin}>Admin</Button>
-          </Link>
-          <Link to="/vendorlogin">
-          <Button color="inherit" onClick={handleVendorLogin}>Vendor</Button>
-          </Link> */}
     </Box>
   )
 }
