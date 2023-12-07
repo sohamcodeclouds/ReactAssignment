@@ -149,13 +149,7 @@ function App() {
         />
         <Route
           path='/vendorlogin'
-          element={
-            isVendorLoggedIn ? (
-              <Navigate to='/vendordashboard' />
-            ) : (
-              <VendorLogin onLogin={handleVendorLogin} />
-            )
-          }
+          element={<VendorLogin onLogin={handleVendorLogin} />}
         />
         <Route path='/signup' element={<SignUp />} />
         <Route
@@ -165,7 +159,7 @@ function App() {
           }
         />
         <Route
-          path='/vendordashboard'
+          path='/vendordashboard/:vid'
           element={<UserList userDetails={isVendorLoggedIn} />}
         />
 

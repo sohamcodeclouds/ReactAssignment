@@ -82,7 +82,9 @@ export default function VendorLogin({ onLogin }) {
         if (foundUser) {
           // Login successful
           onLogin(foundUser)
-
+          navigate(`/vendordashboard/${foundUser.id}`, {
+            state: { data: foundUser.id },
+          })
           alert(`Login successful`)
           console.log(foundUser)
           // Clear form fields after successful login
@@ -90,7 +92,6 @@ export default function VendorLogin({ onLogin }) {
             email: '',
             password: '',
           })
-          navigate('/vendordashboard')
         } else {
           // Show an error message or pop-up for invalid credentials
           alert('Invalid username or password. Please try again.')
@@ -124,7 +125,7 @@ export default function VendorLogin({ onLogin }) {
           </Typography>
           <Box
             component='form'
-            onSubmit={handleLogin}
+            // onSubmit={handleLogin}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -158,6 +159,7 @@ export default function VendorLogin({ onLogin }) {
               type='submit'
               fullWidth
               variant='contained'
+              onClick={handleLogin}
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In

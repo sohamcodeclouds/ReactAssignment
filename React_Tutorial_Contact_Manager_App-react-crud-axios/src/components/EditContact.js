@@ -34,7 +34,7 @@ const EditContact = (props) => {
     setPassword(password)
     setName('')
     setEmail('')
-    navigate('/vendordashboard')
+    navigate(`/vendordashboard/${id}`)
   }
   const handleChange = (e) => {
     console.log('log', e)

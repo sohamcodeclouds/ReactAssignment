@@ -9,7 +9,7 @@ const LoginBoard = () => {
   const buttonContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
-    height: '60vh',
+    height: '30vh',
     alignItems: 'center',
   }
 
@@ -27,25 +27,39 @@ const LoginBoard = () => {
   return (
     <>
       <Dashboard />
-      <div style={buttonContainerStyle}>
-        <Link to='/adminlogin'>
-          <Button
-            color='inherit'
-            onClick={handleAdminLogin}
-            style={buttonStyle}
-          >
-            Admin
-          </Button>
-        </Link>
-        <Link to='/vendorlogin'>
-          <Button
-            color='inherit'
-            onClick={handleVendorLogin}
-            style={buttonStyle}
-          >
-            Vendor
-          </Button>
-        </Link>
+      <div
+        style={{
+          border: '1px solid black',
+          margin: '50px',
+          borderRadius: '15px',
+        }}
+      >
+        <div style={{ margin: '20px', textAlign: 'center' }}>
+          <h3>Welcome to our product</h3>
+        </div>
+        <div style={buttonContainerStyle}>
+          <Link to='/adminlogin'>
+            <Button
+              color='inherit'
+              onClick={handleAdminLogin}
+              style={buttonStyle}
+            >
+              Admin
+            </Button>
+          </Link>
+          <Link to='/vendorlogin'>
+            <Button
+              color='inherit'
+              onClick={handleVendorLogin}
+              style={buttonStyle}
+            >
+              Vendor
+            </Button>
+          </Link>
+        </div>
+        <p style={{ marginLeft: '10px' }}>
+          Please choose any user for further communication
+        </p>
       </div>
     </>
   )

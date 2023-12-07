@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import UserCard from './UserCard'
 import { useSelector } from 'react-redux'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { Container } from '@mui/material'
 import Dashboard from '../pages/Dashboard'
 import api from '../api/contacts'
@@ -9,12 +9,14 @@ import api from '../api/contacts'
 const UserList = (props) => {
   const [verified, setVerified] = useState('')
   const [contactDetails, setContactDetails] = useState()
-  console.log('log state', props)
-  const { userDetails } = props
-  const [userId, setUserId] = useState(userDetails.id)
+  const { state } = useLocation()
+  const { data } = state || {}
+  const param = useParams()
+  console.log('log state', data, param)
+
+  const [userId, setUserId] = useState(param.vid)
 
   useEffect(() => {
-    console.log('user details', userDetails)
     const getContactDetails = async () => {
       const resp = await api.get(`/contacts/${userId}`)
       const data = resp.data
@@ -22,20 +24,19 @@ const UserList = (props) => {
 
       return data
     }
-    if (userDetails) {
-      setUserId(userDetails.id)
-      console.log('userid', userId)
-      const result = getContactDetails()
-      if (result) {
-        console.log('user details result', result)
-        setContactDetails(result)
-        const data = result.then((item) => {
-          setVerified(item.isVerified)
-        })
-        console.log('user details verified?', verified)
-      }
+
+    console.log('userid', userId)
+    const result = getContactDetails()
+    if (result) {
+      setUserId(param.vid)
+      console.log('user details result', result)
+      setContactDetails(result)
+      const data = result.then((item) => {
+        setVerified(item.isVerified)
+      })
+      console.log('user details verified?', verified)
     }
-  }, [userDetails, verified, userDetails.id, userId])
+  }, [verified, userId, param.vid])
   const deleteConactHandler = (id) => {
     props.getContactId(id)
   }

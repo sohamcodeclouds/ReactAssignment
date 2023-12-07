@@ -4,8 +4,8 @@
       "id": "d4caf46e-e79f-499a-b082-87e6fd646124",
       "name": "john deo",
       "email": "john@test.com",
-      "roleValue": "Project Manager",
-      "description": "test 123",
+      "roleValue": "HR",
+      "description": "test 1234",
       "isVerified": "active",
       "password": "john123"
     },
@@ -13,10 +13,10 @@
       "id": "764512ca-a782-4ee2-8047-f2e8c2266c26",
       "name": "test demo",
       "email": "test@mail.com",
+      "password": "test123",
       "roleValue": "UI Developer",
       "description": "test",
-      "isVerified": "active",
-      "password": "test123"
+      "isVerified": "deactive"
     },
     {
       "id": "af0f7ef5-744f-4877-98c2-91dcc129dc08",
@@ -25,7 +25,7 @@
       "password": "demo123",
       "roleValue": "Quality Analyst",
       "description": "test demo",
-      "isVerified": "deactive"
+      "isVerified": "active"
     }
   ],
   "roles": [
@@ -60,15 +60,6 @@
   ],
   "admin": {
     "email": "admin@gmail.com",
-    "password": "adminpassword"
-  },
-  "vendors": [
-    {
-      "id": "f988c867-64b0-446a-bef0-a7e760effac9",
-      "name": "test demo",
-      "email": "test@mail.com",
-      "password": "test123",
-      "isActive": false
-    }
-  ]
+    "password": "adminpass"
+  }
 }
