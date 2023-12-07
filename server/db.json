@@ -4,10 +4,10 @@
       "id": "d4caf46e-e79f-499a-b082-87e6fd646124",
       "name": "john deo",
       "email": "john@test.com",
-      "password": "john123",
-      "roleValue": "UI Developer",
+      "roleValue": "Project Manager",
       "description": "test 123",
-      "isVerified": "deactive"
+      "isVerified": "active",
+      "password": "john123"
     },
     {
       "id": "764512ca-a782-4ee2-8047-f2e8c2266c26",
@@ -23,9 +23,9 @@
       "name": "demo test",
       "email": "demo@test.com",
       "password": "demo123",
-      "isVerified": "deactive",
-      "roleValue": "",
-      "description": ""
+      "roleValue": "Quality Analyst",
+      "description": "test demo",
+      "isVerified": "deactive"
     }
   ],
   "roles": [

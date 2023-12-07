@@ -4,21 +4,38 @@ import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import { Container } from '@mui/material'
 import Dashboard from '../pages/Dashboard'
+import api from '../api/contacts'
 
 const UserList = (props) => {
   const [verified, setVerified] = useState('')
   const [contactDetails, setContactDetails] = useState()
   console.log('log state', props)
   const { userDetails } = props
+  const [userId, setUserId] = useState(userDetails.id)
 
   useEffect(() => {
     console.log('user details', userDetails)
-    if (userDetails) {
-      setVerified(userDetails?.isVerified)
-      setContactDetails(userDetails)
-      console.log('user details verified?', verified)
+    const getContactDetails = async () => {
+      const resp = await api.get(`/contacts/${userId}`)
+      const data = resp.data
+      console.log('resp', data)
+
+      return data
     }
-  }, [userDetails, verified])
+    if (userDetails) {
+      setUserId(userDetails.id)
+      console.log('userid', userId)
+      const result = getContactDetails()
+      if (result) {
+        console.log('user details result', result)
+        setContactDetails(result)
+        const data = result.then((item) => {
+          setVerified(item.isVerified)
+        })
+        console.log('user details verified?', verified)
+      }
+    }
+  }, [userDetails, verified, userDetails.id, userId])
   const deleteConactHandler = (id) => {
     props.getContactId(id)
   }

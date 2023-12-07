@@ -13,7 +13,7 @@ const EditContact = (props) => {
   const [email, setEmail] = useState(state.contact.email)
   const [password, setPassword] = useState(state.contact.password)
   const [description, setDescription] = useState(state.contact.description)
-  const [roleValue, setRolevalue] = useState('Project Manager')
+  const [roleValue, setRolevalue] = useState(state.contact.roleValue)
 
   const handleUpdate = (e) => {
     e.preventDefault()
@@ -77,7 +77,7 @@ const EditContact = (props) => {
           </div>
           <div className='field'>
             <label>Role</label>
-            <select defaultValue={roleValue} onChange={handleChange}>
+            <select value={roleValue} onChange={handleChange}>
               {props.roles.map((role) => (
                 <option value={role.name} key={role.id} selected={roleValue}>
                   {role.name}
