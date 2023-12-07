@@ -111,7 +111,7 @@ export default function UserPage(props) {
 
   return (
     <>
-      <Dashboard />
+      <Dashboard clickHandler={deleteConactHandler} />
       <Container>
         {props.contacts.length > 0 ? (
           <Card sx={{ marginTop: '75px' }}>

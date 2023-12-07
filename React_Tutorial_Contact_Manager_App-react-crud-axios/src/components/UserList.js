@@ -9,6 +9,8 @@ import api from '../api/contacts'
 const UserList = (props) => {
   const [verified, setVerified] = useState('')
   const [contactDetails, setContactDetails] = useState()
+  const [name, setName] = useState()
+
   const { state } = useLocation()
   const { data } = state || {}
   const param = useParams()
@@ -33,10 +35,11 @@ const UserList = (props) => {
       setContactDetails(result)
       const data = result.then((item) => {
         setVerified(item.isVerified)
+        setName(item.name)
       })
-      console.log('user details verified?', verified)
+      console.log('user details verified?', verified, name)
     }
-  }, [verified, userId, param.vid])
+  }, [verified, userId, param.vid, name])
   const deleteConactHandler = (id) => {
     props.getContactId(id)
   }

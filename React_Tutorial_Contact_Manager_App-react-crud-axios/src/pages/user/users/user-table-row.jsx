@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import Stack from '@mui/material/Stack'
@@ -38,6 +38,10 @@ export default function UserTableRow({
   const handleCloseMenu = () => {
     setOpen(null)
   }
+
+  useEffect(() => {
+    console.log('reload table', isVerified)
+  }, [contact, isVerified])
 
   return (
     <>

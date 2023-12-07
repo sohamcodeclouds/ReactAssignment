@@ -4,10 +4,10 @@
       "id": "d4caf46e-e79f-499a-b082-87e6fd646124",
       "name": "john deo",
       "email": "john@test.com",
+      "password": "john123",
       "roleValue": "HR",
       "description": "test 1234",
-      "isVerified": "active",
-      "password": "john123"
+      "isVerified": "deactive"
     },
     {
       "id": "764512ca-a782-4ee2-8047-f2e8c2266c26",
@@ -16,7 +16,7 @@
       "password": "test123",
       "roleValue": "UI Developer",
       "description": "test",
-      "isVerified": "deactive"
+      "isVerified": "active"
     },
     {
       "id": "af0f7ef5-744f-4877-98c2-91dcc129dc08",
@@ -25,7 +25,16 @@
       "password": "demo123",
       "roleValue": "Quality Analyst",
       "description": "test demo",
-      "isVerified": "active"
+      "isVerified": "deactive"
+    },
+    {
+      "id": "f6660f79-0053-4102-9a78-fbfaefd9814d",
+      "name": "jane deo",
+      "email": "jane@test.com",
+      "roleValue": "Quality Analyst",
+      "description": "test description",
+      "isVerified": "active",
+      "password": "jane123"
     }
   ],
   "roles": [
